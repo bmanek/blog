@@ -8,3 +8,10 @@ export const fetchPosts = () => {
     dispatch({ type: "FETCH_POSTS", payload: response.data })
   }
 }
+
+// syntax below is same as above, just cleaned up a little
+export const fetchUser = (id) => async dispatch => {
+  const response = await jsonPlaceHolder.get(`/users/${id}`)
+
+  dispatch({ type: "FETCH_USER", payload: response.data })
+}
