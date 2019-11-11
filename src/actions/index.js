@@ -6,6 +6,13 @@ export const fetchPostsAndUsers = () => async (dispatch, getState) => {
 
   const userIds = _.uniq(_.map(getState().posts, 'userId'))
   userIds.forEach(id => dispatch(fetchUser(id)))
+
+  // optional refactor / lodash chain syntax
+  // _.chain(getState().props)
+  // .map('userId')
+  // .uniq()
+  // .forEach(id => dispatch(fetchUser(id)))
+  // .value()
 }
 
 export const fetchPosts = () => {
